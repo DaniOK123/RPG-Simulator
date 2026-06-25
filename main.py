@@ -10,6 +10,7 @@ class Personaggio:
 
 
 
+
 class Guerriero(Personaggio):
     def __init__(self, name, qualita, range, vita):
         super().__init__(name, qualita, range, vita)
