@@ -77,7 +77,7 @@ def main():
 
 def mage():
 
-    print(f'Combattimento tra {mago.name} e {nemico.name}')
+    print(f'Combattimento tra {mago.name} e {nemico.name}\n--------------')
 
     while True:
 
@@ -123,7 +123,7 @@ def mage():
 
 def figther():
     
-    print(f'Combattimento tra {guerriero.name} e {nemico.name}')
+    print(f'Combattimento tra {guerriero.name} e {nemico.name}\n--------------')
 
     while True:
 
