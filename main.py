@@ -10,18 +10,25 @@ class Personaggio:
 
 
 
+
 class Guerriero(Personaggio):
     def __init__(self, name, qualita, range, vita):
         super().__init__(name, qualita, range, vita)
 
-   
+    def schivata(self):
+        
+        schivata = random.randint(1,7)
+        return schivata
 
 
 class Mago(Personaggio):
     def __init__(self, name, qualita, range, vita):
         super().__init__(name, qualita, range, vita)
 
-    
+    def schivata(self):
+        
+        schivata = random.randint(1,9)
+        return schivata
 
 
 
@@ -29,6 +36,10 @@ class Nemico(Personaggio):
     def __init__(self, name, qualita, range, vita):
         super().__init__(name, qualita, range, vita)
 
+    def schivata(self):
+        
+        schivata = random.randint(1,7)
+        return schivata
    
 
 personaggio = Personaggio('neutro', 'neutro', 'neutro', 0)
@@ -71,12 +82,17 @@ def mage():
     while True:
 
         if mago.vita > 0 or nemico.vita > 0:
-            attackM = random.randint(3,10)
-            print(f'Il tuo attacco ha fatto {attackM} danni!')
-            nemico.vita -= attackM 
-            print(f'La tua vita è: {mago.vita}')
-            print(f'La vita del nemico è: {nemico.vita}')
-            print("--------------")
+
+            if nemico.schivata() > 5:
+                print(f"{nemico.name} ha schivato il colpo!!!\n--------------")
+            
+            else:
+                attackM = random.randint(3,10)
+                print(f'Il tuo attacco ha fatto {attackM} danni!')
+                nemico.vita -= attackM 
+                print(f'La tua vita è: {mago.vita}')
+                print(f'La vita del nemico è: {nemico.vita}')
+                print("--------------")
             
 
             if nemico.vita <= 0: 
@@ -85,12 +101,16 @@ def mage():
 
             time.sleep(2)
 
-            attackN = random.randint(3,10)
-            print(f"L'attacco del nemico ha fatto {attackN} danni!")
-            mago.vita -= attackN
-            print(f'La tua vita è: {mago.vita}')
-            print(f'La vita del nemico è: {nemico.vita}')
-            print("--------------")
+            if mago.schivata() > 5:
+                print(f"{mago.name} ha schivato il colpo!!!\n--------------")
+            
+            else:
+                attackN = random.randint(3,10)
+                print(f"L'attacco del nemico ha fatto {attackN} danni!")
+                mago.vita -= attackN
+                print(f'La tua vita è: {mago.vita}')
+                print(f'La vita del nemico è: {nemico.vita}')
+                print("--------------")
             
 
             if mago.vita <= 0:
@@ -108,12 +128,17 @@ def figther():
     while True:
 
         if guerriero.vita > 0 or nemico.vita > 0:
-            attackG = random.randint(3,10)
-            print(f'Il tuo attacco ha fatto {attackG} danni!')
-            nemico.vita -= attackG 
-            print(f'La tua vita è: {guerriero.vita}')
-            print(f'La vita del nemico è: {nemico.vita}')
-            print("--------------")
+
+            if nemico.schivata() > 5:
+                print(f"{nemico.name} ha schivato il colpo!!!\n--------------")
+
+            else:
+                attackG = random.randint(3,10)
+                print(f'Il tuo attacco ha fatto {attackG} danni!')
+                nemico.vita -= attackG 
+                print(f'La tua vita è: {guerriero.vita}')
+                print(f'La vita del nemico è: {nemico.vita}')
+                print("--------------")
            
 
             if nemico.vita <= 0: 
@@ -122,14 +147,17 @@ def figther():
 
             time.sleep(2)
 
+            if nemico.schivata() > 5:
+                print(f"{guerriero.name} ha schivato il colpo!!!\n--------------")
 
-            attackN = random.randint(3,10)
-            print(f"'L'attacco del nemico ha fatto {attackN} danni!")
-            guerriero.vita -= attackN
-            print(f'La tua vita è: {guerriero.vita}')
-            print(f'La vita del nemico è: {nemico.vita}')
-            print("--------------")
-            time.sleep(2)
+            else:
+                attackN = random.randint(3,10)
+                print(f"'L'attacco del nemico ha fatto {attackN} danni!")
+                guerriero.vita -= attackN
+                print(f'La tua vita è: {guerriero.vita}')
+                print(f'La vita del nemico è: {nemico.vita}')
+                print("--------------")
+                time.sleep(2)
 
             if guerriero.vita <= 0:
                 print('Sei morto!!!')
